@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="shortcut icon" href="public/favicon.png" type="image/png">
+   <link rel="stylesheet" href="src/css/style.css">
+   <title>GuessingGame</title>
+</head>
+
+<body>
+   <div class="app">
+      <header>
+         <h1>GuessingGame</h1>
+         <img src="src/assets/game.svg" alt="Svg Game">
+      </header>
+      <section class="container-limit">
+         <h3>Elige el límite</h3>
+         <div class="limit min">
+            <div>
+               <button class="sub" id="minSub"></button>
+               <span id="min">1</span>
+               <button class="add" id="minAdd"></button>
+            </div>
+            <p>Min</p>
+         </div>
+         <div class="limit max">
+            <div>
+               <button class="sub" id="maxSub"></button>
+               <span id="max">10</span>
+               <button class="add" id="maxAdd"></button>
+            </div>
+            <p>Max</p>
+         </div>
+         <button class="btn-update" onclick="updateGame()">Actualizar</button>
+      </section>
+      <main>
+         <h3>Adivina el número</h3>
+         <form>
+            <input type="number" id="number" required class="input-number" />
+            <button type="submit" class="btn-update">Enviar</button>
+         </form>
+         <p>Intentos realizados: <span id="attempts">Ninguno</span>
+         </p>
+         <h3 class="game won hidden">¡Ganaste! Adivinaste el número</h3>
+         <h3 class="game lose hidden">¡Incorrecto! Sigue intentando</h3>
+      </main>
+   </div>
+   <script src="src/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500&display=swap');
+
+:root {
+   --text-light: #e2c9ff;
+   --bg-black: #07020c;
+   --primary: #8000ff;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body,
+button,
+input {
+   font-family: 'Karla', sans-serif;
+}
+
+body {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   background: #0e001b;
+}
+
+.app {
+   background-color: var(--bg-black);
+   color: var(--text-light);
+   width: 100vw;
+   min-height: 100vh;
+   border-radius: 10px;
+   padding: 10px 5px;
+   box-shadow: 0px 0px 15px #1c01359c;
+}
+
+
+header {
+   display: flex;
+   position: relative;
+   align-items: center;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 10px;
+   margin: 20px 0 30px 0;
+}
+
+header::after {
+   content: "";
+   position: absolute;
+   bottom: -2px;
+   left: 10%;
+   width: 80%;
+   height: 2px;
+   border-radius: 10px;
+   background-color: var(--primary);
+   box-shadow: 0px 0px 10px #440281;
+}
+
+header>img {
+   width: 50px;
+   height: 50px;
+}
+
+header>h1 {
+   font-size: 2.7rem;
+   padding-bottom: 0.2em;
+   font-weight: 500;
+   color: var(--primary);
+}
+
+.container-limit {
+   width: 100%;
+   max-width: 350px;
+   margin: auto;
+   display: grid;
+   grid-template-areas: "h3 h3" "min max" "button button";
+   place-items: center;
+   margin-bottom: 30px;
+}
+
+h3 {
+   font-size: 1.6rem;
+   grid-area: h3;
+   font-weight: 500;
+   margin-bottom: 20px;
+}
+
+.container-limit .min {
+   grid-area: min;
+}
+
+.container-limit .max {
+   grid-area: max;
+}
+
+.container-limit>.btn-update {
+   grid-area: button;
+   margin-top: 10px;
+}
+
+.limit {
+   text-align: center;
+}
+
+.limit>p {
+   font-weight: 300;
+   margin-top: 5px;
+}
+
+.limit>div {
+   background-color: #12051f;
+   border-radius: 10px;
+   overflow: hidden;
+   color: var(--primary);
+   display: flex;
+   align-items: center;
+   box-shadow: 0px 0px 10px #1c0135;
+}
+
+.limit>div>span {
+   font-size: 1.1rem;
+   font-weight: 500;
+   min-width: 40px;
+   padding: 0 5px;
+}
+
+button {
+   cursor: pointer;
+}
+
+.add,
+.sub {
+   outline: none;
+   border: none;
+   font-weight: 300;
+   position: relative;
+   padding: 15px 17px;
+   font-size: 1.5rem;
+   background-color: var(--text-light);
+   color: var(--bg-black);
+   transition: background .3s;
+}
+
+.add::before,
+.sub::before {
+   content: "";
+   position: absolute;
+   width: 15px;
+   height: 2px;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background-color: var(--bg-black);
+   border-radius: 2px;
+}
+
+.add::after {
+   content: "";
+   position: absolute;
+   width: 15px;
+   height: 2px;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%) rotate(90deg);
+   background-color: var(--bg-black);
+   border-radius: 2px;
+}
+
+.btn-update {
+   background-color: var(--text-light);
+   border: none;
+   border-radius: 10px;
+   padding: 5px 10px 6px 10px;
+   font-size: 1.1rem;
+   font-weight: 500;
+   color: var(--bg-black);
+   box-shadow: 0px 0px 10px #4004799c;
+   transition: all .3s;
+}
+
+.btn-update:hover {
+   box-shadow: 0px 0px 10px #8400ff;
+}
+
+.btn-update:hover,
+.add:hover,
+.sub:hover {
+   background-color: var(--primary);
+   color: var(--text-light);
+}
+
+.add:hover::after,
+.add:hover::before,
+.sub:hover::before {
+   background-color: var(--text-light);
+}
+
+.btn-update:active {
+   transform: scale(.9);
+}
+
+main {
+   text-align: center;
+}
+
+main>form {
+   display: flex;
+   gap: 10px;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 20px;
+}
+
+.input-number {
+   border: none;
+   outline: none;
+   padding: 5px 10px;
+   color: var(--bg-black);
+   border-radius: 10px;
+   font-size: 1.1rem;
+   width: 100px;
+}
+
+form+p {
+   font-size: 1.2rem;
+   font-weight: 300;
+   color: var(--primary);
+   margin-bottom: 20px;
+}
+
+form+p>span {
+   color: var(--text-light);
+}
+
+.game {
+   margin: 20px;
+   padding: 10px;
+   max-width: 400px;
+   border-radius: 10px;
+   margin-bottom: 20px;
+   animation: messageAnimation .7s ease-in-out;
+}
+
+.won {
+   background-color: #06cf43;
+   color: var(--bg-black);
+}
+
+.lose {
+   background-color: #740b0b;
+   color: var(--text-light);
+}
+
+.hidden {
+   display: none;
+}
+
+@keyframes messageAnimation {
+   0% {
+      transform: translateX(0px);
+      opacity: 0;
+   }
+
+   20% {
+      transform: translateX(-50px);
+      opacity: 1;
+   }
+
+   40% {
+      transform: translateX(50px);
+   }
+
+   60% {
+      transform: translateX(-10px);
+      opacity: 1;
+   }
+
+   80% {
+      transform: translateX(10px);
+      opacity: 1;
+   }
+
+   100% {
+      transform: translateX(0px);
+   }
+}
+
+@media (min-width: 411px) {
+   .game {
+      margin: auto;
+      margin-bottom: 20px;
+   }
+}
+
+@media (min-width: 530px) {
+   .app {
+      max-width: 500px;
+      min-height: auto;
+   }
+}
+
+@media (min-width: 768px) {
+   html {
+      font-size: 21px;
+   }
+
+   .app {
+      max-width: 600px;
+   }
+
+   .game {
+      max-width: 500px;
+      font-size: 1.2rem;
+   }
+}
