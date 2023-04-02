@@ -5,6 +5,7 @@ const messageLose = document.querySelector(".lose")
 const min = document.querySelector("#min")
 const max = document.querySelector("#max")
 const attempts = document.querySelector('#attempts')
+const updateButton = document.querySelector('#update')
 let randomNumber
 
 function clearMessage() {
@@ -54,8 +55,10 @@ function limits() {
 }
 
 function updateGame() {
-   clearMessage()
-   startRandomNumber()
+   updateButton.addEventListener("click", () => {
+      clearMessage()
+      startRandomNumber()
+   })
 }
 
 function startRandomNumber() {
@@ -95,6 +98,7 @@ function startGame() {
 function main() {
    limits()
    startRandomNumber()
+   updateGame()
    startGame()
 }
 

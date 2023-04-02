@@ -4,6 +4,7 @@
    --text-light: #eee0ff;
    --bg-black: #07020c;
    --primary: #9832ff;
+   --success: #06cf43;
 }
 
 * {
@@ -248,7 +249,7 @@ form+p>span {
 }
 
 .won {
-   background-color: #06cf43;
+   background-color: var(--success);
    color: var(--bg-black);
 }
 
