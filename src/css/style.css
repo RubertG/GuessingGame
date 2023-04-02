@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500&display=swap');
 
 :root {
-   --text-light: #e2c9ff;
+   --text-light: #eee0ff;
    --bg-black: #07020c;
-   --primary: #8000ff;
+   --primary: #9832ff;
 }
 
 * {
@@ -44,15 +44,15 @@ header {
    justify-content: center;
    flex-wrap: wrap;
    gap: 10px;
-   margin: 20px 0 30px 0;
+   margin: 40px 0 30px 0;
 }
 
 header::after {
    content: "";
    position: absolute;
    bottom: -2px;
-   left: 10%;
-   width: 80%;
+   left: 5%;
+   width: 90%;
    height: 2px;
    border-radius: 10px;
    background-color: var(--primary);
@@ -82,7 +82,7 @@ header>h1 {
 }
 
 h3 {
-   font-size: 1.6rem;
+   font-size: 1.8rem;
    grid-area: h3;
    font-weight: 500;
    margin-bottom: 20px;
@@ -211,13 +211,14 @@ main>form {
    gap: 10px;
    align-items: center;
    justify-content: center;
-   margin-bottom: 20px;
+   margin-bottom: 30px;
 }
 
 .input-number {
    border: none;
    outline: none;
    padding: 5px 10px;
+   background-color: var(--text-light);
    color: var(--bg-black);
    border-radius: 10px;
    font-size: 1.1rem;
@@ -226,12 +227,13 @@ main>form {
 
 form+p {
    font-size: 1.2rem;
-   font-weight: 300;
+   font-weight: 500;
    color: var(--primary);
    margin-bottom: 20px;
 }
 
 form+p>span {
+   font-weight: 300;
    color: var(--text-light);
 }
 
@@ -241,7 +243,8 @@ form+p>span {
    max-width: 400px;
    border-radius: 10px;
    margin-bottom: 20px;
-   animation: messageAnimation .7s ease-in-out;
+   font-size: 1.6rem;
+   animation: messageAnimation2 .7s ease-in-out;
 }
 
 .won {
@@ -258,7 +261,7 @@ form+p>span {
    display: none;
 }
 
-@keyframes messageAnimation {
+@keyframes messageAnimation1 {
    0% {
       transform: translateX(0px);
       opacity: 0;
@@ -266,7 +269,6 @@ form+p>span {
 
    20% {
       transform: translateX(-50px);
-      opacity: 1;
    }
 
    40% {
@@ -280,11 +282,34 @@ form+p>span {
 
    80% {
       transform: translateX(10px);
-      opacity: 1;
    }
 
    100% {
       transform: translateX(0px);
+   }
+}
+
+@keyframes messageAnimation2 {
+   0% {
+      transform: translateY(-50px);
+      opacity: 0;
+   }
+
+   25% {
+      transform: translateY(50px);
+   }
+
+   50% {
+      transform: translateY(-10px);
+      opacity: 1;
+   }
+
+   75% {
+      transform: translateY(10px);
+   }
+
+   100% {
+      transform: translateY(0px);
    }
 }
 
@@ -293,12 +318,25 @@ form+p>span {
       margin: auto;
       margin-bottom: 20px;
    }
+
+   header::after {
+      left: 10%;
+      width: 80%;
+   }
 }
 
 @media (min-width: 530px) {
    .app {
       max-width: 500px;
       min-height: auto;
+   }
+
+   .game {
+      animation: messageAnimation1 .7s ease-in-out;
+   }
+
+   header {
+      margin: 20px 0 30px 0;
    }
 }
 
@@ -315,4 +353,5 @@ form+p>span {
       max-width: 500px;
       font-size: 1.2rem;
    }
+
 }
